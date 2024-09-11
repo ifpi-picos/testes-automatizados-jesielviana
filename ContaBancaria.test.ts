@@ -11,6 +11,6 @@ describe("Testando classe ContaBancaria", () => {
   test("Testando depositar valor negativo", () => {
     const conta = new ContaBancaria();
     conta.depositar(-100);
-    expect(conta.consultarSaldo()).toBe(10);
+    expect(conta.consultarSaldo()).toBe(0);
   });
 });
