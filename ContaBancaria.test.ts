@@ -16,4 +16,19 @@ describe("Testando classe ContaBancaria", () => {
     conta.depositar(-100);
     expect(conta.consultarSaldo()).toBe(0);
   });
+
+  test("Deve sacar um valor com saldo suficiente", () => {
+    conta.depositar(100);
+    expect(conta.sacar(40)).toBe(40);
+    expect(conta.consultarSaldo()).toBe(60);
+  });
+
+  test("Deve lançar um erro ao tentar sacar com saldo insuficiente", () => {
+    conta.depositar(100);
+    expect(() => {
+      conta.sacar(150);
+    }).toThrow("Saldo insuficiente");
+    expect(conta.consultarSaldo()).toBe(100);
+  });
+
 });
